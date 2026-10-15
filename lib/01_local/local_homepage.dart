@@ -59,12 +59,49 @@ class _LocalHomepageState extends State<LocalHomepage> {
       _counterBottomLeft +
       _counterBottomRight;
 
+  static const ButtonStyle _incrementButtonStyle = ButtonStyle(
+    shape: WidgetStatePropertyAll(
+      RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(12)),
+      ),
+    ),
+    fixedSize: WidgetStatePropertyAll(Size(48, 48)),
+    backgroundColor: WidgetStatePropertyAll(Color(0xFF0D9488)),
+    foregroundColor: WidgetStatePropertyAll(Colors.white),
+  );
+
+  static const ButtonStyle _decrementButtonStyle = ButtonStyle(
+    shape: WidgetStatePropertyAll(
+      RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(12)),
+      ),
+    ),
+    fixedSize: WidgetStatePropertyAll(Size(48, 48)),
+    backgroundColor: WidgetStatePropertyAll(Color(0xFFE76F66)),
+    foregroundColor: WidgetStatePropertyAll(Colors.white),
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text('$_totalCounter'),
+        backgroundColor: const Color(0xFF0F766E),
+        foregroundColor: Colors.white,
+        title: const Text('Counter Dashboard'),
+        actions: [
+          Container(
+            margin: const EdgeInsets.only(right: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Text(
+              '$_totalCounter',
+              style: const TextStyle(color: Color(0xFF0F766E)),
+            ),
+          ),
+        ],
       ),
       backgroundColor: const Color(0xFFF3F4F6),
       body: Column(
@@ -80,31 +117,30 @@ class _LocalHomepageState extends State<LocalHomepage> {
                       borderRadius: BorderRadius.circular(16),
                     ),
                     child: Center(
-                      child: Column(
+                      child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              IconButton(
-                                icon: const Icon(Icons.add),
-                                onPressed: () => _incrementCounter(
-                                  _CounterPosition.bottomRight,
+                          IconButton(
+                            icon: const Icon(Icons.add),
+                            style: _incrementButtonStyle,
+                            onPressed: () =>
+                                _incrementCounter(_CounterPosition.bottomRight),
+                          ),
+                          const SizedBox(width: 8),
+                          Text(
+                            style: Theme.of(context).textTheme.headlineMedium
+                                ?.copyWith(
+                                  fontSize: 34,
+                                  fontWeight: FontWeight.w600,
                                 ),
-                              ),
-                              Text(
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headlineMedium,
-                                '$_counterTopLeft',
-                              ),
-                              IconButton(
-                                icon: const Icon(Icons.remove),
-                                onPressed: () => _decrementCounter(
-                                  _CounterPosition.bottomRight,
-                                ),
-                              ),
-                            ],
+                            '$_counterTopLeft',
+                          ),
+                          const SizedBox(width: 8),
+                          IconButton(
+                            icon: const Icon(Icons.remove),
+                            style: _decrementButtonStyle,
+                            onPressed: () =>
+                                _decrementCounter(_CounterPosition.bottomRight),
                           ),
                         ],
                       ),
@@ -119,31 +155,30 @@ class _LocalHomepageState extends State<LocalHomepage> {
                       borderRadius: BorderRadius.circular(16),
                     ),
                     child: Center(
-                      child: Column(
+                      child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              IconButton(
-                                icon: const Icon(Icons.add),
-                                onPressed: () => _incrementCounter(
-                                  _CounterPosition.bottomLeft,
+                          IconButton(
+                            icon: const Icon(Icons.add),
+                            style: _incrementButtonStyle,
+                            onPressed: () =>
+                                _incrementCounter(_CounterPosition.bottomLeft),
+                          ),
+                          const SizedBox(width: 8),
+                          Text(
+                            style: Theme.of(context).textTheme.headlineMedium
+                                ?.copyWith(
+                                  fontSize: 34,
+                                  fontWeight: FontWeight.w600,
                                 ),
-                              ),
-                              Text(
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headlineMedium,
-                                '$_counterTopRight',
-                              ),
-                              IconButton(
-                                icon: const Icon(Icons.remove),
-                                onPressed: () => _decrementCounter(
-                                  _CounterPosition.bottomLeft,
-                                ),
-                              ),
-                            ],
+                            '$_counterTopRight',
+                          ),
+                          const SizedBox(width: 8),
+                          IconButton(
+                            icon: const Icon(Icons.remove),
+                            style: _decrementButtonStyle,
+                            onPressed: () =>
+                                _decrementCounter(_CounterPosition.bottomLeft),
                           ),
                         ],
                       ),
@@ -164,31 +199,30 @@ class _LocalHomepageState extends State<LocalHomepage> {
                       borderRadius: BorderRadius.circular(16),
                     ),
                     child: Center(
-                      child: Column(
+                      child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              IconButton(
-                                icon: const Icon(Icons.add),
-                                onPressed: () => _incrementCounter(
-                                  _CounterPosition.topRight,
+                          IconButton(
+                            icon: const Icon(Icons.add),
+                            style: _incrementButtonStyle,
+                            onPressed: () =>
+                                _incrementCounter(_CounterPosition.topRight),
+                          ),
+                          const SizedBox(width: 8),
+                          Text(
+                            style: Theme.of(context).textTheme.headlineMedium
+                                ?.copyWith(
+                                  fontSize: 34,
+                                  fontWeight: FontWeight.w600,
                                 ),
-                              ),
-                              Text(
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headlineMedium,
-                                '$_counterBottomLeft',
-                              ),
-                              IconButton(
-                                icon: const Icon(Icons.remove),
-                                onPressed: () => _decrementCounter(
-                                  _CounterPosition.topRight,
-                                ),
-                              ),
-                            ],
+                            '$_counterBottomLeft',
+                          ),
+                          const SizedBox(width: 8),
+                          IconButton(
+                            icon: const Icon(Icons.remove),
+                            style: _decrementButtonStyle,
+                            onPressed: () =>
+                                _decrementCounter(_CounterPosition.topRight),
                           ),
                         ],
                       ),
@@ -203,29 +237,30 @@ class _LocalHomepageState extends State<LocalHomepage> {
                       borderRadius: BorderRadius.circular(16),
                     ),
                     child: Center(
-                      child: Column(
+                      child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              IconButton(
-                                icon: const Icon(Icons.add),
-                                onPressed: () =>
-                                    _incrementCounter(_CounterPosition.topLeft),
-                              ),
-                              Text(
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headlineMedium,
-                                '$_counterBottomRight',
-                              ),
-                              IconButton(
-                                icon: const Icon(Icons.remove),
-                                onPressed: () =>
-                                    _decrementCounter(_CounterPosition.topLeft),
-                              ),
-                            ],
+                          IconButton(
+                            icon: const Icon(Icons.add),
+                            style: _incrementButtonStyle,
+                            onPressed: () =>
+                                _incrementCounter(_CounterPosition.topLeft),
+                          ),
+                          const SizedBox(width: 8),
+                          Text(
+                            style: Theme.of(context).textTheme.headlineMedium
+                                ?.copyWith(
+                                  fontSize: 34,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                            '$_counterBottomRight',
+                          ),
+                          const SizedBox(width: 8),
+                          IconButton(
+                            icon: const Icon(Icons.remove),
+                            style: _decrementButtonStyle,
+                            onPressed: () =>
+                                _decrementCounter(_CounterPosition.topLeft),
                           ),
                         ],
                       ),
