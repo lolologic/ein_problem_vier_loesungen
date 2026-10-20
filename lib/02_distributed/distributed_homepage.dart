@@ -60,28 +60,6 @@ class _DistributedHomepageState extends State<DistributedHomepage> {
       _counterBottomLeft +
       _counterBottomRight;
 
-  static const ButtonStyle _incrementButtonStyle = ButtonStyle(
-    shape: WidgetStatePropertyAll(
-      RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(12)),
-      ),
-    ),
-    fixedSize: WidgetStatePropertyAll(Size(48, 48)),
-    backgroundColor: WidgetStatePropertyAll(Color(0xFF0D9488)),
-    foregroundColor: WidgetStatePropertyAll(Colors.white),
-  );
-
-  static const ButtonStyle _decrementButtonStyle = ButtonStyle(
-    shape: WidgetStatePropertyAll(
-      RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(12)),
-      ),
-    ),
-    fixedSize: WidgetStatePropertyAll(Size(48, 48)),
-    backgroundColor: WidgetStatePropertyAll(Color(0xFFE76F66)),
-    foregroundColor: WidgetStatePropertyAll(Colors.white),
-  );
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -111,60 +89,21 @@ class _DistributedHomepageState extends State<DistributedHomepage> {
             child: Row(
               children: [
                 Expanded(
-                  child: Container(
-                    margin: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: Center(
-                      child: DistributedQuadrant(
-                        mainAxisSize: MainAxisSize.min,
-                        counterValue: _counterTopLeft,
-                        onIncrement: () =>
-                            _incrementCounter(_CounterPosition.bottomRight),
-                        onDecrement: () =>
-                            _decrementCounter(_CounterPosition.bottomRight),
-                      ),
-                    ),
+                  child: DistributedQuadrant(
+                    counterValue: _counterTopLeft,
+                    onIncrement: () =>
+                        _incrementCounter(_CounterPosition.bottomRight),
+                    onDecrement: () =>
+                        _decrementCounter(_CounterPosition.bottomRight),
                   ),
                 ),
                 Expanded(
-                  child: Container(
-                    margin: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: Center(
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          IconButton(
-                            icon: const Icon(Icons.add),
-                            style: _incrementButtonStyle,
-                            onPressed: () =>
-                                _incrementCounter(_CounterPosition.bottomLeft),
-                          ),
-                          const SizedBox(width: 8),
-                          Text(
-                            style: Theme.of(context).textTheme.headlineMedium
-                                ?.copyWith(
-                                  fontSize: 34,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                            '$_counterTopRight',
-                          ),
-                          const SizedBox(width: 8),
-                          IconButton(
-                            icon: const Icon(Icons.remove),
-                            style: _decrementButtonStyle,
-                            onPressed: () =>
-                                _decrementCounter(_CounterPosition.bottomLeft),
-                          ),
-                        ],
-                      ),
-                    ),
+                  child: DistributedQuadrant(
+                    counterValue: _counterTopRight,
+                    onIncrement: () =>
+                        _incrementCounter(_CounterPosition.bottomLeft),
+                    onDecrement: () =>
+                        _decrementCounter(_CounterPosition.bottomLeft),
                   ),
                 ),
               ],
@@ -174,79 +113,21 @@ class _DistributedHomepageState extends State<DistributedHomepage> {
             child: Row(
               children: [
                 Expanded(
-                  child: Container(
-                    margin: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: Center(
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          IconButton(
-                            icon: const Icon(Icons.add),
-                            style: _incrementButtonStyle,
-                            onPressed: () =>
-                                _incrementCounter(_CounterPosition.topRight),
-                          ),
-                          const SizedBox(width: 8),
-                          Text(
-                            style: Theme.of(context).textTheme.headlineMedium
-                                ?.copyWith(
-                                  fontSize: 34,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                            '$_counterBottomLeft',
-                          ),
-                          const SizedBox(width: 8),
-                          IconButton(
-                            icon: const Icon(Icons.remove),
-                            style: _decrementButtonStyle,
-                            onPressed: () =>
-                                _decrementCounter(_CounterPosition.topRight),
-                          ),
-                        ],
-                      ),
-                    ),
+                  child: DistributedQuadrant(
+                    counterValue: _counterBottomLeft,
+                    onIncrement: () =>
+                        _incrementCounter(_CounterPosition.topRight),
+                    onDecrement: () =>
+                        _decrementCounter(_CounterPosition.topRight),
                   ),
                 ),
                 Expanded(
-                  child: Container(
-                    margin: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: Center(
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          IconButton(
-                            icon: const Icon(Icons.add),
-                            style: _incrementButtonStyle,
-                            onPressed: () =>
-                                _incrementCounter(_CounterPosition.topLeft),
-                          ),
-                          const SizedBox(width: 8),
-                          Text(
-                            style: Theme.of(context).textTheme.headlineMedium
-                                ?.copyWith(
-                                  fontSize: 34,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                            '$_counterBottomRight',
-                          ),
-                          const SizedBox(width: 8),
-                          IconButton(
-                            icon: const Icon(Icons.remove),
-                            style: _decrementButtonStyle,
-                            onPressed: () =>
-                                _decrementCounter(_CounterPosition.topLeft),
-                          ),
-                        ],
-                      ),
-                    ),
+                  child: DistributedQuadrant(
+                    counterValue: _counterBottomRight,
+                    onIncrement: () =>
+                        _incrementCounter(_CounterPosition.topLeft),
+                    onDecrement: () =>
+                        _decrementCounter(_CounterPosition.topLeft),
                   ),
                 ),
               ],
