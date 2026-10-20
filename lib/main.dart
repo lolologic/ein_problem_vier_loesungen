@@ -1,5 +1,5 @@
+import 'package:ein_problem_vier_loesungen/03_distributed_with_passive_widgets/distributed_passive_homepage.dart';
 import 'package:flutter/material.dart';
-import 'package:ein_problem_vier_loesungen/02_distributed/distributed_homepage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
-      home: const DistributedHomepage(),
+      home: const DistributedPassiveHomepage(),
     );
   }
 }
