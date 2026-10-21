@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 
+/// Displays a counter and forwards button presses to callbacks.
 class DistributedQuadrant extends StatelessWidget {
+  /// The currently displayed counter value.
   final int counterValue;
+
+  /// Callback invoked by the increment button.
   final VoidCallback onIncrement;
+
+  /// Callback invoked by the decrement button.
   final VoidCallback onDecrement;
 
+  /// Creates a quadrant with a counter value and callbacks.
   const DistributedQuadrant({
     super.key,
     required this.counterValue,

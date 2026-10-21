@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 
 enum _CounterPosition { topLeft, topRight, bottomLeft, bottomRight }
 
+/// Manages the counters and passes data and callbacks through passive row widgets.
 class DistributedPassiveHomepage extends StatefulWidget {
+  /// Creates the variant with passive rows and quadrants.
   const DistributedPassiveHomepage({super.key});
 
   @override

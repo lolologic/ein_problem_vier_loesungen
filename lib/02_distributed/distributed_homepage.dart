@@ -3,7 +3,9 @@ import 'package:ein_problem_vier_loesungen/02_distributed/distributed_quadrant.d
 
 enum _CounterPosition { topLeft, topRight, bottomLeft, bottomRight }
 
+/// Manages the counters centrally and passes values and callbacks to child widgets.
 class DistributedHomepage extends StatefulWidget {
+  /// Creates the variant with separate counter widgets.
   const DistributedHomepage({super.key});
 
   @override

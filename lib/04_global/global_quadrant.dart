@@ -3,9 +3,12 @@ import 'package:ein_problem_vier_loesungen/04_global/counter_position.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
 
+/// Displays one counter while its buttons update the diagonally opposite counter.
 class GlobalQuadrant extends ConsumerWidget {
+  /// Position of the counter whose value is displayed.
   final CounterPosition position;
 
+  /// Creates the quadrant for the given [position].
   const GlobalQuadrant({super.key, required this.position});
 
   static const ButtonStyle _incrementButtonStyle = ButtonStyle(

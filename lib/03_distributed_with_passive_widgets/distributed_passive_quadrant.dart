@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 
+/// Displays a counter without owning state or counter logic.
 class DistributedPassiveQuadrant extends StatelessWidget {
+  /// The currently displayed counter value.
   final int counterValue;
+
+  /// Increment callback provided by the parent widget.
   final VoidCallback onIncrement;
+
+  /// Decrement callback provided by the parent widget.
   final VoidCallback onDecrement;
 
+  /// Creates a passive quadrant with its value and callbacks.
   const DistributedPassiveQuadrant({
     super.key,
     required this.counterValue,

@@ -1,9 +1,18 @@
+/// Immutable state containing all four counter values.
 class CounterState {
+  /// Counter value at the top-left position.
   final int topLeft;
+
+  /// Counter value at the top-right position.
   final int topRight;
+
+  /// Counter value at the bottom-left position.
   final int bottomLeft;
+
+  /// Counter value at the bottom-right position.
   final int bottomRight;
 
+  /// Creates a state with unspecified counter values initialized to zero.
   const CounterState({
     this.topLeft = 0,
     this.topRight = 0,
@@ -11,6 +20,9 @@ class CounterState {
     this.bottomRight = 0,
   });
 
+  /// Returns a new state with the provided counter values.
+  ///
+  /// Unspecified counter values remain unchanged.
   CounterState copyWith({
     int? topLeft,
     int? topRight,
@@ -25,5 +37,6 @@ class CounterState {
     );
   }
 
+  /// Sum of all four counter values.
   int get totalCounter => topLeft + topRight + bottomLeft + bottomRight;
 }

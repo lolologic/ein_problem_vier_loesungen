@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 enum _CounterPosition { topLeft, topRight, bottomLeft, bottomRight }
 
+/// Manages all four counters and their UI in a single widget.
 class LocalHomepage extends StatefulWidget {
+  /// Creates the variant with local widget state.
   const LocalHomepage({super.key});
 
   @override

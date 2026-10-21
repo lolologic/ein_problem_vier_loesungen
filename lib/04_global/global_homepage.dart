@@ -4,7 +4,9 @@ import 'package:ein_problem_vier_loesungen/04_global/counter_position.dart';
 import 'package:ein_problem_vier_loesungen/04_global/global_quadrant.dart';
 import 'package:flutter/material.dart';
 
+/// Displays the dashboard using shared Riverpod state.
 class GlobalHomepage extends ConsumerWidget {
+  /// Creates the dashboard for the global state variant.
   const GlobalHomepage({super.key});
 
   @override
