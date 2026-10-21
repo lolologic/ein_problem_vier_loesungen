@@ -1,13 +1,9 @@
-import 'package:ein_problem_vier_loesungen/03_distributed_with_passive_widgets/distributed_passive_homepage.dart';
+import 'package:ein_problem_vier_loesungen/04_global/global_homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
-  runApp(
-    const ProviderScope(
-      child: MyApp(),
-    ),
-  );
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -18,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
-      home: const DistributedPassiveHomepage(),
+      home: const GlobalHomepage(),
     );
   }
 }

@@ -1,16 +1,12 @@
+import 'package:ein_problem_vier_loesungen/04_global/counter_notifier.dart';
+import 'package:ein_problem_vier_loesungen/04_global/counter_position.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
 
-class GlobalQuadrant extends StatelessWidget {
-  final int counterValue;
-  final VoidCallback onIncrement;
-  final VoidCallback onDecrement;
+class GlobalQuadrant extends ConsumerWidget {
+  final CounterPosition position;
 
-  const GlobalQuadrant({
-    super.key,
-    required this.counterValue,
-    required this.onIncrement,
-    required this.onDecrement,
-  });
+  const GlobalQuadrant({super.key, required this.position});
 
   static const ButtonStyle _incrementButtonStyle = ButtonStyle(
     shape: WidgetStatePropertyAll(
@@ -35,7 +31,35 @@ class GlobalQuadrant extends StatelessWidget {
   );
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    late final CounterPosition oppositePosition;
+
+    final counterValue = ref.watch(
+      counterProvider.select((state) {
+        switch (position) {
+          case CounterPosition.topLeft:
+            return state.topLeft;
+          case CounterPosition.topRight:
+            return state.topRight;
+          case CounterPosition.bottomLeft:
+            return state.bottomLeft;
+          case CounterPosition.bottomRight:
+            return state.bottomRight;
+        }
+      }),
+    );
+
+    switch (position) {
+      case CounterPosition.topLeft:
+        oppositePosition = CounterPosition.bottomRight;
+      case CounterPosition.topRight:
+        oppositePosition = CounterPosition.bottomLeft;
+      case CounterPosition.bottomLeft:
+        oppositePosition = CounterPosition.topRight;
+      case CounterPosition.bottomRight:
+        oppositePosition = CounterPosition.topLeft;
+    }
+
     return Container(
       margin: const EdgeInsets.all(8),
       decoration: BoxDecoration(
@@ -49,7 +73,9 @@ class GlobalQuadrant extends StatelessWidget {
             IconButton(
               icon: const Icon(Icons.add),
               style: _incrementButtonStyle,
-              onPressed: onIncrement,
+              onPressed: () => ref
+                  .read(counterProvider.notifier)
+                  .incrementCounter(oppositePosition),
             ),
             const SizedBox(width: 8),
             Text(
@@ -61,7 +87,9 @@ class GlobalQuadrant extends StatelessWidget {
             IconButton(
               icon: const Icon(Icons.remove),
               style: _decrementButtonStyle,
-              onPressed: onDecrement,
+              onPressed: () => ref
+                  .read(counterProvider.notifier)
+                  .decrementCounter(oppositePosition),
             ),
           ],
         ),

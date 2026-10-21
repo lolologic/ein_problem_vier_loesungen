@@ -24,4 +24,6 @@ class CounterState {
       bottomRight: bottomRight ?? this.bottomRight,
     );
   }
+
+  int get totalCounter => topLeft + topRight + bottomLeft + bottomRight;
 }
